@@ -41,3 +41,31 @@ def test_divide_negative_numbers(calculator):
 def test_divide_by_zero(calculator):
     with pytest.raises(ValueError):
         calculator.divide(6, 0)
+
+def test_power_positive_exponent(calculator):
+    # Проверка возведения числа в положительную степень
+    assert calculator.power(2, 3) == 8
+
+def test_power_negative_exponent(calculator):
+    # Проверка возведения числа в отрицательную степень
+    assert calculator.power(2, -3) == 0.125
+
+def test_power_zero_base(calculator):
+    # Проверка возведения нуля в любую степень (должен быть равен нулю)
+    assert calculator.power(0, 5) == 0
+
+def test_power_zero_exponent(calculator):
+    # Проверка возведения числа в нулевую степень (должен быть равен 1)
+    assert calculator.power(5, 0) == 1
+
+def test_power_negative_base(calculator):
+    # Проверка возведения отрицательного числа в степень
+    assert calculator.power(-2, 3) == -8
+
+def test_power_even_exponent_of_negative_base(calculator):
+    # Проверка возведения отрицательного числа в четную степень
+    assert calculator.power(-2, 2) == 4
+
+def test_power_odd_exponent_of_negative_base(calculator):
+    # Проверка возведения отрицательного числа в нечетную степень
+    assert calculator.power(-2, 3) == -8
